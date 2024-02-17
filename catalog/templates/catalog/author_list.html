@@ -1,18 +1,14 @@
-<!-- author_detail.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>{{ author.first_name }} {{ author.last_name }}</title>
+    <title>All Authors</title>
 </head>
 <body>
-    <h1>{{ author.first_name }} {{ author.last_name }}</h1>
-    <p>Date of Birth: {{ author.date_of_birth }}</p>
-    <p>Date of Death: {{ author.date_of_death }}</p>
-
-    <h2>Books by {{ author.first_name }} {{ author.last_name }}</h2>
+    <!-- Added Author List Heading -->
+    <h1>All Authors</h1>
     <ul>
-        {% for book in books_by_author %}
-            <li><a href="{% url 'book-detail' book.pk %}">{{ book.title }}</a></li>
+        {% for author in authors %}
+            <li><a href="{% url 'author_detail' author.pk %}">{{ author.first_name }} {{ author.last_name }}</a></li>
         {% endfor %}
     </ul>
 </body>
